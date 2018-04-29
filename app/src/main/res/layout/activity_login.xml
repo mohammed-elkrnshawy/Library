@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/animation_list"
     tools:context=".Shared.LoginActivity"
     android:id="@+id/Container">
 
@@ -40,19 +39,19 @@
                 android:layout_weight="1"
                 android:id="@+id/TIL_Email"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                >
-
+                android:layout_height="0dp">
                 <EditText
-                    android:inputType="textEmailAddress"
                     android:id="@+id/editText_email"
+                    android:inputType="textEmailAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
-                    android:textSize="15sp"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     />
-
             </android.support.design.widget.TextInputLayout>
+
 
 
             <android.support.design.widget.TextInputLayout
@@ -66,40 +65,46 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
-                    android:textSize="15sp"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     />
-
             </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
 
 
+
         <LinearLayout
-            android:layout_weight="1"
-            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_weight=".9">
 
             <Button
-                android:layout_margin="5dp"
-                android:layout_gravity="center"
+                android:textColor="#fff"
+                android:textSize="20dp"
                 android:id="@+id/button_Login"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Log in"
-                android:textColor="@color/app_blue"
-                android:background="@drawable/corner_bk"/>
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/lightsolid_withoutstroke_15dp"
+                />
 
             <Button
-                android:layout_margin="5dp"
-                android:layout_gravity="center"
+                android:textColor="#fff"
+                android:textSize="20dp"
                 android:id="@+id/button_Register"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sign up"
-                android:textColor="@color/app_blue"
-                android:background="@drawable/corner_bk"/>
+                android:background="@drawable/lightsolid_withoutstroke_15dp"
+                />
+
 
         </LinearLayout>
 
