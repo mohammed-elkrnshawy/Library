@@ -17,7 +17,6 @@
             >
 
             <EditText
-                android:inputType="textEmailAddress"
                 android:id="@+id/editText_ID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +35,6 @@
             >
 
             <EditText
-                android:inputType="textEmailAddress"
                 android:id="@+id/editText_Username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,7 +53,6 @@
             >
 
             <in.anshul.libray.PasswordEditText
-                android:inputType="textEmailAddress"
                 android:id="@+id/editText_Password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

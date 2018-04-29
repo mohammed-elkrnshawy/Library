@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Shared.LoginActivity" />
-        <activity android:name=".Shared.RegisterActivity"></activity>
+        <activity android:name=".Shared.RegisterActivity" />
+        <activity android:name=".Student.HomeActivity"></activity>
     </application>
 
 </manifest>
