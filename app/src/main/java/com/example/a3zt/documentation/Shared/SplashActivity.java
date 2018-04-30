@@ -38,7 +38,7 @@ public class SplashActivity extends AppCompatActivity {
     {
         Intent intent=new Intent(this,LoginActivity.class);
         startActivity(intent);
-
+        finish();
         /*SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         boolean isLogin=sharedPref.getBoolean("isLogin",false);
         if (isLogin)

@@ -49,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
     private PasswordEditText editTextPassword;
     private Button buttonLogin,buttonRegister;
     private LinearLayout Container;
-    private AnimationDrawable anim;
 
 
     @Override
@@ -62,7 +61,6 @@ public class LoginActivity extends AppCompatActivity {
 
         InitComponent();
 
-        setAnimation();
 
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
@@ -84,23 +82,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (anim != null && anim.isRunning())
-            anim.stop();
-    }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (anim != null && !anim.isRunning())
-            anim.start();
-    }
-    private void setAnimation() {
-        anim = (AnimationDrawable) Container.getBackground();
-        anim.setEnterFadeDuration(6000);
-        anim.setExitFadeDuration(2000);
-    }
+
 
 
     private void InitComponent() {
