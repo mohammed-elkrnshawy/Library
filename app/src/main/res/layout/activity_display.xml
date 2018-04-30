@@ -1,9 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Shared.DisplayActivity">
+    tools:context=".Shared.DisplayActivity"
+    android:orientation="vertical"
+    android:padding="10dp">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/action_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_menu_color"
+        />
+
+    <TextView
+        android:id="@+id/titletv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Title"
+        android:textSize="30sp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/categorytv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Category"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/yeartv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Year"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/departmenttv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Deaprtment"
+        android:textSize="20sp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/color_background"
+        android:padding="10dp"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/downloadfile"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_file_download"
+            />
+
+        <ImageView
+            android:id="@+id/deletefile"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_delete"
+            />
+
+        <ImageView
+            android:id="@+id/sharefile"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_share"
+            />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/reviewet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Write a review.."
+        android:inputType="textMultiLine" />
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/comments_list"
+        android:paddingLeft="5dp">
+
+
+    </ListView>
+
+
+</LinearLayout>

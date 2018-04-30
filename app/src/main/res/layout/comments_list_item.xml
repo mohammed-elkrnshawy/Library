@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/nametv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Name"
+        android:textSize="25sp"
+        android:textColor="@color/color_light"/>
+
+    <TextView
+        android:id="@+id/commenttv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Comment"
+        android:textSize="20sp"
+        android:textColor="@color/app_Black"
+        android:paddingLeft="10dp"/>
+</>
