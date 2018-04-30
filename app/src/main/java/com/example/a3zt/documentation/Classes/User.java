@@ -1,6 +1,8 @@
 package com.example.a3zt.documentation.Classes;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String ID;
     private String Username;
     private String Password;

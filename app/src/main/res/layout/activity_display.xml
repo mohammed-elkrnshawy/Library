@@ -8,14 +8,9 @@
     android:orientation="vertical"
     android:padding="10dp">
 
-    <ImageView
-        android:id="@+id/action_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_menu_color"
-        />
 
     <TextView
+        android:layout_marginTop="5dp"
         android:id="@+id/titletv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,6 +73,12 @@
             />
 
     </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD"
+        android:id="@+id/add"/>
 
     <EditText
         android:id="@+id/reviewet"

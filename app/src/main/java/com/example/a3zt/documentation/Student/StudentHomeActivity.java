@@ -22,6 +22,7 @@ import com.example.a3zt.documentation.Classes.ListAdapter;
 import com.example.a3zt.documentation.Classes.Project;
 import com.example.a3zt.documentation.Classes.User;
 import com.example.a3zt.documentation.Professor.ProfHomeActivity;
+import com.example.a3zt.documentation.Professor.UploadActivity;
 import com.example.a3zt.documentation.R;
 import com.example.a3zt.documentation.Shared.DisplayActivity;
 import com.google.firebase.database.DataSnapshot;
@@ -60,17 +61,37 @@ public class StudentHomeActivity extends AppCompatActivity  implements Navigatio
         ReturnPDF();
 
 
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                ReturnPDF();
+                return false;
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                SearchPDF(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Project project= (Project) parent.getItemAtPosition(position);
                 Intent intent=new Intent(StudentHomeActivity.this, DisplayActivity.class);
                 intent.putExtra("Object",project);
+                intent.putExtra("User",Professor);
                 startActivity(intent);
             }
         });
-
-
 
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +104,22 @@ public class StudentHomeActivity extends AppCompatActivity  implements Navigatio
             }
         });
 
+        //region SlideButtonClick
+        mNavigationView.setNavigationItemSelectedListener
+                (new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
+                           /* case R.id.uploadDocument:
+                                Intent ProfileIntent=new Intent(StudentHomeActivity.this,UploadActivity.class);
+                                startActivity(ProfileIntent);
+                                break;*/
+                        }
+                        return true;
+                    }
+                });
+        //endregion
+
     }
 
     private void InitComponent() {
@@ -93,7 +130,6 @@ public class StudentHomeActivity extends AppCompatActivity  implements Navigatio
         reference = FirebaseDatabase.getInstance().getReference();
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         mNavigationView = (NavigationView) findViewById(R.id.fr);
-
     }
     private void getData()
     {
@@ -125,7 +161,8 @@ public class StudentHomeActivity extends AppCompatActivity  implements Navigatio
                                         (List<String>) info.child("studentNames").getValue(),
                                         info.child("category").getValue() + "",
                                         (List<String>) info.child("keyWords").getValue(),
-                                        info.child("downloadUel").getValue() + ""
+                                        info.child("downloadUel").getValue() + "",
+                                        info.getKey()+""
                                 ));
                             }
 
@@ -150,6 +187,71 @@ public class StudentHomeActivity extends AppCompatActivity  implements Navigatio
             }
         });
     }
+
+
+    private void SearchPDF(final String s)
+    {
+        final boolean[] flag = {false};
+        Query query=reference.child("Documentation");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                projectList.clear();
+                if(dataSnapshot.exists())
+                {
+                    try {
+                        for (DataSnapshot info : dataSnapshot.getChildren()) {
+
+                                List<String> Keys=(List<String>) info.child("keyWords").getValue();
+                                for(String key:Keys)
+                                {
+                                    if(key.toLowerCase().contains(s.toLowerCase()))
+                                    {
+                                        flag[0] =true;
+                                        break;
+                                    }
+                                }
+
+                                if(flag[0])
+                                {
+                                    projectList.add(new Project(
+                                            info.child("doctorUID").getValue() + "",
+                                            info.child("title").getValue() + "",
+                                            info.child("description").getValue() + "",
+                                            info.child("department").getValue() + "",
+                                            info.child("year").getValue() + "",
+                                            (List<String>) info.child("studentNames").getValue(),
+                                            info.child("category").getValue() + "",
+                                            (List<String>) info.child("keyWords").getValue(),
+                                            info.child("downloadUel").getValue() + "",
+                                            info.getKey()+""
+                                    ));
+                                }
+                            }
+
+
+                    }
+                    catch (Exception t)
+                    {
+                        Toast.makeText(StudentHomeActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                listAdapt=new ListAdapter(StudentHomeActivity.this,R.layout.document_list_item,projectList);
+                listView.setAdapter(listAdapt);
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

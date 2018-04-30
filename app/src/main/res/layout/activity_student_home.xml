@@ -72,7 +72,7 @@
                 android:background="@color/colorPrimary"
                 app:itemTextColor="@color/colorPrimaryDark"
                 app:itemIconTint="@color/colorPrimaryDark"
-                app:menu="@menu/drawermenu_professor"
+                app:menu="@menu/drawermenu_student"
                 android:layout_gravity="start"
                 >
 

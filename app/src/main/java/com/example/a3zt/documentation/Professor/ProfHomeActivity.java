@@ -58,6 +58,26 @@ public class ProfHomeActivity extends AppCompatActivity  implements NavigationVi
         ReturnPDF();
 
 
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                ReturnPDF();
+                return false;
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                SearchPDF(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -65,6 +85,7 @@ public class ProfHomeActivity extends AppCompatActivity  implements NavigationVi
                 Project project= (Project) parent.getItemAtPosition(position);
                 Intent intent=new Intent(ProfHomeActivity.this, DisplayActivity.class);
                 intent.putExtra("Object",project);
+                intent.putExtra("User",Professor);
                 startActivity(intent);
             }
         });
@@ -136,7 +157,8 @@ public class ProfHomeActivity extends AppCompatActivity  implements NavigationVi
                                        (List<String>) info.child("studentNames").getValue(),
                                        info.child("category").getValue() + "",
                                        (List<String>) info.child("keyWords").getValue(),
-                                       info.child("downloadUel").getValue() + ""
+                                       info.child("downloadUel").getValue() + "",
+                                       info.getKey()+""
                                ));
                            }
                        }
@@ -146,6 +168,69 @@ public class ProfHomeActivity extends AppCompatActivity  implements NavigationVi
                    {
                        Toast.makeText(ProfHomeActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                    }
+                }
+
+                listAdapt=new ListAdapter(ProfHomeActivity.this,R.layout.document_list_item,projectList);
+                listView.setAdapter(listAdapt);
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void SearchPDF(final String s)
+    {
+        final boolean[] flag = {false};
+        Query query=reference.child("Documentation");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                projectList.clear();
+                if(dataSnapshot.exists())
+                {
+                    try {
+                        for (DataSnapshot info : dataSnapshot.getChildren()) {
+                            if (Professor.getUuid().equals(info.child("doctorUID").getValue()+"")) {
+                                List<String> Keys=(List<String>) info.child("keyWords").getValue();
+                                for(String key:Keys)
+                                {
+                                    if(key.toLowerCase().contains(s.toLowerCase()))
+                                    {
+                                        flag[0] =true;
+                                        break;
+                                    }
+                                }
+
+                                if(flag[0])
+                                {
+                                    projectList.add(new Project(
+                                            info.child("doctorUID").getValue() + "",
+                                            info.child("title").getValue() + "",
+                                            info.child("description").getValue() + "",
+                                            info.child("department").getValue() + "",
+                                            info.child("year").getValue() + "",
+                                            (List<String>) info.child("studentNames").getValue(),
+                                            info.child("category").getValue() + "",
+                                            (List<String>) info.child("keyWords").getValue(),
+                                            info.child("downloadUel").getValue() + "",
+                                            info.getKey()+""
+                                    ));
+                                }
+                            }
+                        }
+
+                    }
+                    catch (Exception t)
+                    {
+                        Toast.makeText(ProfHomeActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 listAdapt=new ListAdapter(ProfHomeActivity.this,R.layout.document_list_item,projectList);
