@@ -1,8 +1,9 @@
 package com.example.a3zt.documentation.Classes;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Project {
+public class Project implements Serializable {
     private String DoctorUID;
     private String Title;
     private String Description;

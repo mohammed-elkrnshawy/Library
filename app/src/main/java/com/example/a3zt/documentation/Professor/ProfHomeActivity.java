@@ -23,6 +23,7 @@ import com.example.a3zt.documentation.Classes.ListAdapter;
 import com.example.a3zt.documentation.Classes.Project;
 import com.example.a3zt.documentation.Classes.User;
 import com.example.a3zt.documentation.R;
+import com.example.a3zt.documentation.Shared.DisplayActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -57,11 +58,14 @@ public class ProfHomeActivity extends AppCompatActivity  implements NavigationVi
         ReturnPDF();
 
 
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Project project= (Project) parent.getItemAtPosition(position);
-                Toast.makeText(ProfHomeActivity.this, project.getTitle(), Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(ProfHomeActivity.this, DisplayActivity.class);
+                intent.putExtra("Object",project);
+                startActivity(intent);
             }
         });
 

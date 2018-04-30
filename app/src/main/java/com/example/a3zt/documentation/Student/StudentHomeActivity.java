@@ -23,6 +23,7 @@ import com.example.a3zt.documentation.Classes.Project;
 import com.example.a3zt.documentation.Classes.User;
 import com.example.a3zt.documentation.Professor.ProfHomeActivity;
 import com.example.a3zt.documentation.R;
+import com.example.a3zt.documentation.Shared.DisplayActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -63,7 +64,9 @@ public class StudentHomeActivity extends AppCompatActivity  implements Navigatio
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Project project= (Project) parent.getItemAtPosition(position);
-                Toast.makeText(StudentHomeActivity.this, project.getTitle(), Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(StudentHomeActivity.this, DisplayActivity.class);
+                intent.putExtra("Object",project);
+                startActivity(intent);
             }
         });
 

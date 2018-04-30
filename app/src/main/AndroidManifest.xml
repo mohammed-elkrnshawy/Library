@@ -24,7 +24,8 @@
         <activity android:name=".Shared.RegisterActivity" />
         <activity android:name=".Student.StudentHomeActivity" />
         <activity android:name=".Professor.ProfHomeActivity" />
-        <activity android:name=".Professor.UploadActivity"></activity>
+        <activity android:name=".Professor.UploadActivity" />
+        <activity android:name=".Shared.DisplayActivity"></activity>
     </application>
 
 </manifest>
