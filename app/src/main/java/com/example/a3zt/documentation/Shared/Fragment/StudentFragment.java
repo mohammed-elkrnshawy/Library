@@ -2,9 +2,7 @@ package com.example.a3zt.documentation.Shared.Fragment;
 
 import android.app.Fragment;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,7 +15,6 @@ import android.widget.Toast;
 import com.example.a3zt.documentation.Classes.User;
 import com.example.a3zt.documentation.R;
 import com.example.a3zt.documentation.Shared.LoginActivity;
-import com.example.a3zt.documentation.Student.HomeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -25,7 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.gson.Gson;
 
 public class StudentFragment extends Fragment {
 
@@ -98,7 +94,7 @@ public class StudentFragment extends Fragment {
     private void CreateStudent()
     {
         Student=new User(editTextID.getText()+"",editTextUsername.getText()+""
-                ,editTextPassword.getText()+"",editTextEmail.getText()+"");
+                ,editTextPassword.getText()+"",editTextEmail.getText()+"",0);
     }
 
     private void StudentRegister()
@@ -114,7 +110,7 @@ public class StudentFragment extends Fragment {
                             Log.d("G", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Verification(user);
-                            mDatabase.child("Student").child(user.getUid()).setValue(Student);
+                            mDatabase.child("Users").child(user.getUid()).setValue(Student);
                             Student.setUuid(user.getUid());
                             OpenHome();
                         } else {

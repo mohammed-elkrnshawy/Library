@@ -6,12 +6,22 @@ public class User {
     private String Password;
     private String Email;
     private String Uuid;
+    private int Type;
 
-    public User(String ID, String username, String password, String email) {
+    public User(String ID, String username, String password, String email,int type) {
         this.ID = ID;
         Username = username;
         Password = password;
         Email = email;
+        Type=type;
+    }
+
+    public int getType() {
+        return Type;
+    }
+
+    public void setType(int type) {
+        Type = type;
     }
 
     public String getUuid() {
