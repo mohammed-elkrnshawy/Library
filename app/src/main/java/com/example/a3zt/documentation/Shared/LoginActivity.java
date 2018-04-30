@@ -189,6 +189,7 @@ public class LoginActivity extends AppCompatActivity {
                               info.child("email").getValue()+"",
                               Integer.parseInt(info.child("type").getValue()+"")
                             );
+                            userLogin.setUuid(user.getUid());
                         }
                     }
                 }

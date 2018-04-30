@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Professor.UploadActivity">
+        <activity android:name=".Shared.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +24,7 @@
         <activity android:name=".Shared.RegisterActivity" />
         <activity android:name=".Student.StudentHomeActivity" />
         <activity android:name=".Professor.ProfHomeActivity" />
-        <activity android:name=".Shared.SplashActivity"></activity>
+        <activity android:name=".Professor.UploadActivity"></activity>
     </application>
 
 </manifest>

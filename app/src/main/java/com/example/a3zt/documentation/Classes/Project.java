@@ -11,10 +11,11 @@ public class Project {
     private List<String> StudentNames;
     private String Category;
     private List<String>KeyWords;
-
+    private String DownloadUel;
+    private String UID;
     //AdapterConstractor
     public Project(String doctorUID, String title, String description, String department,
-                   String year, List<String> studentNames, String category, List<String> keyWords) {
+                   String year, List<String> studentNames, String category, List<String> keyWords,String downloadUel) {
         DoctorUID = doctorUID;
         Title = title;
         Description = description;
@@ -23,11 +24,13 @@ public class Project {
         StudentNames = studentNames;
         Category = category;
         KeyWords = keyWords;
+        DownloadUel=downloadUel;
     }
 
-    //AdapterUpload
-    public Project(String title, String description, String department,
-                   String year, List<String> studentNames, String category, List<String> keyWords) {
+    public Project(String doctorUID, String title, String description, String department,
+                   String year, List<String> studentNames, String category, List<String> keyWords,
+                   String downloadUel, String UID) {
+        DoctorUID = doctorUID;
         Title = title;
         Description = description;
         Department = department;
@@ -35,7 +38,26 @@ public class Project {
         StudentNames = studentNames;
         Category = category;
         KeyWords = keyWords;
+        DownloadUel = downloadUel;
+        this.UID = UID;
     }
+
+    public String getUID() {
+        return UID;
+    }
+
+    public void setUID(String UID) {
+        this.UID = UID;
+    }
+
+    public String getDownloadUel() {
+        return DownloadUel;
+    }
+
+    public void setDownloadUel(String downloadUel) {
+        DownloadUel = downloadUel;
+    }
+
 
     public String getDoctorUID() {
         return DoctorUID;
