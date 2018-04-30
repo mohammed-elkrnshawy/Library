@@ -19,9 +19,7 @@
             android:id="@+id/photoView"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:rlv_titleSize="18dp"
-            app:rlv_titleColor="@color/colorPrimaryDark"
-            app:rlv_backgroundColorValue="#fff"
+
             />
 
         <TextView

@@ -21,10 +21,10 @@
             <EditText
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
-                android:id="@+id/editText_Title"
+                android:id="@+id/editText_ID"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Title"
+                android:hint="ID"
                 android:textSize="15dp"
                 />
         </android.support.design.widget.TextInputLayout>
@@ -39,10 +39,10 @@
             <EditText
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
-                android:id="@+id/editText_Description"
+                android:id="@+id/editText_Username"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Description"
+                android:hint="Username"
                 android:textSize="15dp"
                 />
         </android.support.design.widget.TextInputLayout>
@@ -53,11 +53,11 @@
             android:id="@+id/TIL_Password"
             >
 
-            <EditText
-                android:id="@+id/editText_Department"
+            <in.anshul.libray.PasswordEditText
+                android:id="@+id/editText_Password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Department"
+                android:hint="Password"
                 android:textSize="15dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
@@ -72,29 +72,11 @@
             <EditText
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
-                android:id="@+id/editText_Year"
+                android:id="@+id/editText_Email"
                 android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Year"
-                android:textSize="15dp"
-                />
-        </android.support.design.widget.TextInputLayout>
-
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/TIL_Category"
-            >
-            <EditText
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:id="@+id/editText_Category"
-                android:inputType="textEmailAddress"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Category"
+                android:hint="Email"
                 android:textSize="15dp"
                 />
         </android.support.design.widget.TextInputLayout>

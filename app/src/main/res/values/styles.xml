@@ -11,13 +11,4 @@
         <item name="colorControlNormal">@color/color_light</item>
     </style>
 
-    <style name="ActionBarProfile" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/color_light</item>
-        <item name="android:textColorHint">@color/color_light</item>
-        <item name="colorControlActivated">@color/colorRed</item>
-    </style>
-
 </resources>
