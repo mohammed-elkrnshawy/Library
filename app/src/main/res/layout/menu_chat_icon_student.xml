@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/cycle"
+    android:id="@+id/layout">
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:clickable="true"
+            android:id="@+id/photoView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:rlv_titleSize="18dp"
+            app:rlv_titleColor="@color/colorPrimaryDark"
+            app:rlv_backgroundColorValue="#fff"
+            />
+
+        <TextView
+            android:id="@+id/PName_text"
+            android:autoSizeMaxTextSize="78dp"
+            android:maxLength="8"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            android:layout_below="@+id/rlv_name_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mohammed"/>
+    </LinearLayout>
+
+
+</LinearLayout>
